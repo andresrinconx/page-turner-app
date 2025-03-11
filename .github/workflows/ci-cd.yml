@@ -33,19 +33,14 @@ jobs:
     needs: test
     name: Build
     runs-on: ubuntu-latest
-
     steps:
-      - name: Setup repo
-        uses: actions/checkout@v4
-
-      - name: Setup EAS
+      - uses: actions/checkout@v4
+      - name: Setup Expo and EAS
         uses: expo/expo-github-action@v8
         with:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
-
       - name: Install dependencies
-        run: npm install
-
-      - name: Build app
-        run: eas build --platform all
+        run: npm ci
+      - name: Build on EAS
+        run: eas build --platform all --non-interactive --no-wait
