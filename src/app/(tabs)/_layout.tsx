@@ -1,12 +1,12 @@
 import { Platform } from "react-native";
 import { Tabs } from "expo-router";
-import { HapticTab } from "@/src/components/global/HapticTab";
-import { IconSymbol } from "@/src/components/ui/IconSymbol";
-import TabBarBackground from "@/src/components/global/TabBarBackground";
-import { Colors } from "@/src/lib/constants";
-import { useColorScheme } from "@/src/lib/hooks/useColorScheme";
+import HapticTab from "../../components/global/haptic-tab";
+import IconSymbol from "../../components/ui/icon-symbol";
+import TabBarBackground from "../../components/global/tab-bar-background";
+import { Colors } from "../../lib/constants";
+import { useColorScheme } from "../../lib/hooks/useColorScheme";
 
-export default function TabLayout() {
+const TabLayout = () => {
   const colorScheme = useColorScheme();
 
   return (
@@ -18,7 +18,6 @@ export default function TabLayout() {
         tabBarBackground: TabBarBackground,
         tabBarStyle: Platform.select({
           ios: {
-            // Use a transparent background on iOS to show the blur effect
             position: "absolute",
           },
           default: {},
@@ -26,23 +25,34 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="books"
         options={{
-          title: "Home",
+          title: "Books",
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="house.fill" color={color} />
+            <IconSymbol size={28} name="book.fill" color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="insights"
         options={{
-          title: "Explore",
+          title: "Insights",
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="paperplane.fill" color={color} />
+            <IconSymbol size={28} name="chart.bar.fill" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="settings"
+        options={{
+          title: "Settings",
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="gearshape.fill" color={color} />
           ),
         }}
       />
     </Tabs>
   );
-}
+};
+
+export default TabLayout;
