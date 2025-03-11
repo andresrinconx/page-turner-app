@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "page-turner-app",
-    "slug": "page-turner-app",
+    "slug": "page-turner",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -43,6 +43,15 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "28d266a6-9cc5-45cc-8ac2-002fb614d7c7"
+      }
+    },
+    "owner": "andresrincon.x"
   }
 }
