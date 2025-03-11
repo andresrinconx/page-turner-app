@@ -29,38 +29,23 @@ jobs:
       - name: Test
         run: npm test -- --ci --watchAll=false
 
-  android_development_build:
+  build:
     needs: test
-    name: Android Development Build
+    name: Build
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Setup repo
+        uses: actions/checkout@v4
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          java-version: "17"
-          distribution: "temurin"
-
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-
-      - name: Setup Expo
+      - name: Setup EAS
         uses: expo/expo-github-action@v8
         with:
-          expo-version: latest
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: Install dependencies
-        run: npm i
+        run: npm install
 
-      - name: Build Android app
-        run: eas build --platform android --profile development --local --output ${{ github.workspace }}/app-release.apk
-
-      - name: Upload APK artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: app-release
-          path: ${{ github.workspace }}/app-release.apk
+      - name: Build app
+        run: eas build --platform all
