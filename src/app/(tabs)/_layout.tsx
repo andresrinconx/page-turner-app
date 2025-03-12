@@ -1,7 +1,7 @@
 import { Platform } from "react-native";
 import { Tabs } from "expo-router";
 import HapticTab from "../../components/global/haptic-tab";
-import IconSymbol from "../../components/ui/icon-symbol";
+import IconSymbol from "../../components/icons/icon-symbol";
 import TabBarBackground from "../../components/global/tab-bar-background";
 import { Colors } from "../../lib/constants";
 import { useColorScheme } from "../../lib/hooks/useColorScheme";
@@ -25,7 +25,7 @@ const TabLayout = () => {
       }}
     >
       <Tabs.Screen
-        name="books"
+        name="index"
         options={{
           title: "Books",
           tabBarIcon: ({ color }) => (
@@ -34,7 +34,7 @@ const TabLayout = () => {
         }}
       />
       <Tabs.Screen
-        name="insights"
+        name="insights/index"
         options={{
           title: "Insights",
           tabBarIcon: ({ color }) => (
@@ -43,7 +43,7 @@ const TabLayout = () => {
         }}
       />
       <Tabs.Screen
-        name="settings"
+        name="settings/index"
         options={{
           title: "Settings",
           tabBarIcon: ({ color }) => (

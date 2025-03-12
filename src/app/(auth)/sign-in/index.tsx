@@ -1,7 +1,7 @@
 import ScrollableScreen from "../../../components/templates/scrollable-screen";
 
-const LoginScreen = () => {
+const SignInScreen = () => {
   return <ScrollableScreen></ScrollableScreen>;
 };
 
-export default LoginScreen;
+export default SignInScreen;
