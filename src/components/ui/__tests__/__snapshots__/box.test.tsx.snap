@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Box matches snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#FF0000",
+      },
+      {
+        "padding": 10,
+      },
+    ]
+  }
+>
+  Test Content
+</View>
+`;

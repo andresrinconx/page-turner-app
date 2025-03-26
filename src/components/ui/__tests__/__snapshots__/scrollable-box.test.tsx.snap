@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScrollableBox matches snapshot 1`] = `
+<RCTScrollView
+  contentContainerStyle={
+    [
+      {
+        "backgroundColor": "#FF0000",
+      },
+      {
+        "padding": 10,
+      },
+    ]
+  }
+>
+  <View>
+    Test Content
+  </View>
+</RCTScrollView>
+`;
