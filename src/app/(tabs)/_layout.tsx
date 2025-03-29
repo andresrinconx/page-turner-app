@@ -1,18 +1,17 @@
 import { Platform } from "react-native";
 import { Tabs } from "expo-router";
 import HapticTab from "../../components/global/haptic-tab";
-import IconSymbol from "../../components/ui/icon-symbol";
 import TabBarBackground from "../../components/global/tab-bar-background";
-import { Colors } from "../../lib/constants";
-import { useColorScheme } from "../../lib/hooks/useColorScheme";
+import { COLORS } from "../../lib/constants";
+import BookIcon from "../../components/icons/book";
+import ChartIcon from "../../components/icons/chart";
+import SettingsIcon from "../../components/icons/settings";
 
 const TabLayout = () => {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
+        tabBarActiveTintColor: COLORS.primary,
         headerShown: false,
         tabBarButton: HapticTab,
         tabBarBackground: TabBarBackground,
@@ -22,33 +21,26 @@ const TabLayout = () => {
           },
           default: {},
         }),
-      }}
-    >
+      }}>
       <Tabs.Screen
-        name="books"
+        name="index"
         options={{
           title: "Books",
-          tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="book.fill" color={color} />
-          ),
+          tabBarIcon: ({ color }) => <BookIcon color={color} />,
         }}
       />
       <Tabs.Screen
         name="insights"
         options={{
           title: "Insights",
-          tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="chart.bar.fill" color={color} />
-          ),
+          tabBarIcon: ({ color }) => <ChartIcon color={color} />,
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
           title: "Settings",
-          tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="gearshape.fill" color={color} />
-          ),
+          tabBarIcon: ({ color }) => <SettingsIcon color={color} />,
         }}
       />
     </Tabs>

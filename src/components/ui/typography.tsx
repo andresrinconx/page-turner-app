@@ -1,31 +1,102 @@
-import { Text, type TextProps } from "react-native";
-import { useThemeColor } from "../../lib/hooks/useThemeColor";
+import { Text, type TextProps, type TextStyle, StyleSheet } from "react-native";
+import { COLORS } from "../../lib/constants";
 
-const TEXT_STYLES = {
-  default: "text-base leading-6",
-  title: "text-3xl font-bold leading-8",
-  defaultSemiBold: "text-base leading-6 font-semibold",
-  subtitle: "text-xl font-bold",
-  link: "text-base leading-[30px] text-[#0a7ea4]",
+const TEXT_VARIANTS = {
+  paragraph1: {
+    fontSize: 16,
+    lineHeight: 24,
+  },
+  paragraph2: {
+    fontSize: 14,
+    lineHeight: 20,
+  },
+  paragraph3: {
+    fontSize: 12,
+    lineHeight: 20,
+  },
+  headline1: {
+    fontSize: 28,
+    lineHeight: 34,
+  },
+  headline2: {
+    fontSize: 24,
+    lineHeight: 28,
+  },
+  headline3: {
+    fontSize: 20,
+    lineHeight: 24,
+  },
+  headline4: {
+    fontSize: 18,
+    lineHeight: 22,
+  },
+  label1: {
+    fontSize: 18,
+    lineHeight: 24,
+  },
+  label2: {
+    fontSize: 16,
+    lineHeight: 24,
+  },
 } as const;
 
-export type TypographyProps = TextProps & {
-  lightColor?: string;
-  darkColor?: string;
-  type?: keyof typeof TEXT_STYLES;
-};
+const FONT_WEIGHTS = {
+  light: "300",
+  normal: "400",
+  medium: "500",
+  semibold: "600",
+  bold: "700",
+} as const;
+
+interface TypographyProps extends TextProps {
+  variant?: keyof typeof TEXT_VARIANTS;
+  type?: "primary" | "secondary";
+  weight?: keyof typeof FONT_WEIGHTS;
+  color?: string;
+  textAlign?: "left" | "center" | "right";
+}
 
 const Typography = ({
   style,
-  lightColor,
-  darkColor,
-  type = "default",
-  ...rest
+  variant = "paragraph1",
+  type = "primary",
+  weight = "normal",
+  color,
+  textAlign = "left",
+  ...props
 }: TypographyProps) => {
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, "text");
-  const textStyle = TEXT_STYLES[type];
+  const textColor =
+    color ?? (type === "secondary" ? COLORS.secondaryText : COLORS.text);
+  const variantStyle = TEXT_VARIANTS[variant];
+  const fontWeight = FONT_WEIGHTS[weight];
 
-  return <Text className={textStyle} style={[{ color }, style]} {...rest} />;
+  return (
+    <Text
+      style={[
+        styles.base,
+        variantStyle,
+        styles[textAlign],
+        { color: textColor, fontWeight },
+        style as TextStyle,
+      ]}
+      {...props}
+    />
+  );
 };
 
 export default Typography;
+
+const styles = StyleSheet.create({
+  base: {
+    fontFamily: "System",
+  },
+  left: {
+    textAlign: "left",
+  },
+  center: {
+    textAlign: "center",
+  },
+  right: {
+    textAlign: "right",
+  },
+});
