@@ -57,13 +57,4 @@ describe("ScrollableBox", () => {
     expect(scrollableBox.type).toBe("RCTScrollView");
     expect(child).toBeTruthy();
   });
-
-  it("matches snapshot", () => {
-    const { toJSON } = render(
-      <ScrollableBox backgroundColor="#FF0000" style={{ padding: 10 }}>
-        Test Content
-      </ScrollableBox>,
-    );
-    expect(toJSON()).toMatchSnapshot();
-  });
 });

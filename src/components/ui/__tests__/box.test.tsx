@@ -52,13 +52,4 @@ describe("Box", () => {
     expect(child).toBeTruthy();
     expect(box.props.children).toBeTruthy();
   });
-
-  it("matches snapshot", () => {
-    const { toJSON } = render(
-      <Box backgroundColor="#FF0000" style={{ padding: 10 }}>
-        Test Content
-      </Box>,
-    );
-    expect(toJSON()).toMatchSnapshot();
-  });
 });

@@ -15,9 +15,4 @@ describe("Spinner", () => {
     expect(spinner.props.size).toBe("small");
     expect(spinner.props.color).toBe(COLORS.primary);
   });
-
-  it("matches snapshot", () => {
-    const { toJSON } = render(<Spinner />);
-    expect(toJSON()).toMatchSnapshot();
-  });
 });

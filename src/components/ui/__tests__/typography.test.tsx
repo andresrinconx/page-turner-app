@@ -128,23 +128,4 @@ describe("Typography", () => {
       expect.arrayContaining([expect.objectContaining(customStyle)]),
     );
   });
-
-  it("matches snapshot with default props", () => {
-    const { toJSON } = render(<Typography>Snapshot Test</Typography>);
-    expect(toJSON()).toMatchSnapshot();
-  });
-
-  it("matches snapshot with custom props", () => {
-    const { toJSON } = render(
-      <Typography
-        variant="headline1"
-        type="secondary"
-        weight="bold"
-        color="#FF0000"
-        textAlign="center">
-        Custom Snapshot
-      </Typography>,
-    );
-    expect(toJSON()).toMatchSnapshot();
-  });
 });

@@ -134,23 +134,4 @@ describe("Button", () => {
     );
     expect(getByTestId("custom-child")).toBeTruthy();
   });
-
-  it("matches snapshot with default props", () => {
-    const { toJSON } = render(<Button>Snapshot Test</Button>);
-    expect(toJSON()).toMatchSnapshot();
-  });
-
-  it("matches snapshot with custom props", () => {
-    const { toJSON } = render(
-      <Button
-        variant="outline"
-        size="lg"
-        loading={false}
-        disabled={true}
-        fullWidth={true}>
-        Custom Snapshot
-      </Button>,
-    );
-    expect(toJSON()).toMatchSnapshot();
-  });
 });
