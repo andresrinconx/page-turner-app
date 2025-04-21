@@ -1,6 +1,6 @@
 import * as React from "react";
 import Svg, { Path } from "react-native-svg";
-import { COLORS } from "../../lib/constants";
+import { COLORS } from "@/shared/constants";
 
 interface SettingsIconProps {
   color: keyof typeof COLORS;

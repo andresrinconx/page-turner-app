@@ -1,4 +1,4 @@
-import supabase from "../../../shared/lib/config/supabase";
+import supabase from "@/shared/config/supabase";
 
 const signOut = async () => {
   const { error } = await supabase.auth.signOut();

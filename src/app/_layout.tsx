@@ -4,8 +4,8 @@ import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import { QueryClientProvider } from "@tanstack/react-query";
-import { COLORS } from "../shared/lib/constants";
-import queryClient from "../shared/lib/config/query-client";
+import { COLORS } from "@/shared/constants";
+import queryClient from "@/shared/config/query-client";
 import * as SplashScreen from "expo-splash-screen";
 
 SplashScreen.preventAutoHideAsync();

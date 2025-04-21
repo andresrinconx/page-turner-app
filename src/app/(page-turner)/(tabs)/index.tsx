@@ -1,21 +1,7 @@
-import React from "react";
-import FAB from "../../../shared/components/ui/fab";
-import Screen from "../../../shared/components/templates/screen";
-import Typography from "../../../shared/components/ui/typography";
-import { router } from "expo-router";
+import BooksScreen from "@/modules/books/screens/books";
 
-const BooksScreen = () => {
-  return (
-    <>
-      <Screen>
-        <Typography variant="headline1" fontWeight="700" textAlign="center">
-          Page Turner
-        </Typography>
-      </Screen>
-
-      <FAB onPress={() => router.push("/add-book")} />
-    </>
-  );
+const Books = () => {
+  return <BooksScreen />;
 };
 
-export default BooksScreen;
+export default Books;

@@ -1,7 +1,7 @@
-import Box from "../../../shared/components/ui/box";
+import InsightsScreen from "@/modules/books/screens/insights";
 
-const InsightsScreen = () => {
-  return <Box></Box>;
+const Insights = () => {
+  return <InsightsScreen />;
 };
 
-export default InsightsScreen;
+export default Insights;

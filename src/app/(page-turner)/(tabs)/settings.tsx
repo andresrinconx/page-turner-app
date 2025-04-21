@@ -1,15 +1,7 @@
-import Screen from "../../../shared/components/templates/screen";
-import Button from "../../../shared/components/ui/button";
-import signOut from "../../../modules/settings/actions/sign-out";
+import SettingsScreen from "@/modules/books/screens/settings";
 
-const SettingsScreen = () => {
-  return (
-    <Screen>
-      <Button variant="ghost" onPress={() => signOut()}>
-        Sign out
-      </Button>
-    </Screen>
-  );
+const Settings = () => {
+  return <SettingsScreen />;
 };
 
-export default SettingsScreen;
+export default Settings;

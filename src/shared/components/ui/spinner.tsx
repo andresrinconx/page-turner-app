@@ -1,5 +1,5 @@
 import { ActivityIndicator } from "react-native";
-import { COLORS } from "../../lib/constants";
+import { COLORS } from "@/shared/constants";
 
 interface SpinnerProps {
   color?: keyof typeof COLORS;

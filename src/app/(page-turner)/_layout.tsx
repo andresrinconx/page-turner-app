@@ -1,5 +1,5 @@
-import { getSession } from "../../shared/lib/actions/get-session";
-import supabase from "../../shared/lib/config/supabase";
+import { getSession } from "@/modules/auth/services/get-session";
+import supabase from "@/shared/config/supabase";
 import { Stack, Redirect } from "expo-router";
 import { useEffect, useState } from "react";
 import { Session } from "@supabase/supabase-js";
@@ -24,7 +24,7 @@ const PageTurnerLayout = () => {
 
   if (isCheckingSession) {
     return (
-      <Box flex={1} justifyContent="center" alignItems="center">
+      <Box style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <Spinner color="primary" />
       </Box>
     );

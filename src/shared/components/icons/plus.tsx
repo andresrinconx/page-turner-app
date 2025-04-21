@@ -1,5 +1,5 @@
 import Svg, { Path } from "react-native-svg";
-import { COLORS } from "../../lib/constants";
+import { COLORS } from "@/shared/constants";
 
 interface PlusIconProps {
   color: keyof typeof COLORS;

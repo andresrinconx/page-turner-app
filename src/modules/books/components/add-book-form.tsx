@@ -1,13 +1,13 @@
 import React from "react";
-import Box from "../../../shared/components/ui/box";
-import Input from "../../../shared/components/ui/input";
-import Button from "../../../shared/components/ui/button";
+import Box from "@/shared/components/ui/box";
+import Input from "@/shared/components/ui/input";
+import Button from "@/shared/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
-import { addBookSchema, AddBookFormData } from "../types";
+import { addBookSchema, AddBookFormData } from "@/modules/books/types";
 import { useMutation } from "@tanstack/react-query";
 import { router } from "expo-router";
-import { addBook } from "../actions/add-book";
+import { addBook } from "@/modules/books/services/add-book";
 
 const AddBookForm = () => {
   const {
@@ -19,7 +19,7 @@ const AddBookForm = () => {
     resolver: zodResolver(addBookSchema),
     defaultValues: {
       title: "",
-      pages: "",
+      totalPages: "",
       cover: "",
     },
   });
@@ -38,7 +38,7 @@ const AddBookForm = () => {
 
   return (
     <>
-      <Box gap={16}>
+      <Box style={{ gap: 16 }}>
         {/* Cover */}
 
         <Controller
@@ -61,7 +61,7 @@ const AddBookForm = () => {
 
         <Controller
           control={control}
-          name="pages"
+          name="totalPages"
           render={({ field: { onChange, onBlur, value } }) => (
             <Input
               variant="outlined"
@@ -71,15 +71,15 @@ const AddBookForm = () => {
               onChangeText={onChange}
               onBlur={onBlur}
               value={value.toString()}
-              error={!!errors.pages}
-              errorMessage={errors.pages?.message}
+              error={!!errors.totalPages}
+              errorMessage={errors.totalPages?.message}
             />
           )}
         />
       </Box>
 
       <Button
-        mt={24}
+        style={{ marginTop: 24 }}
         onPress={handleSubmit((data: AddBookFormData) => addBookMutation(data))}
         loading={isPending}>
         Add Book

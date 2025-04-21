@@ -1,14 +1,8 @@
-import {
-  TextInput,
-  type TextInputProps,
-  type TextStyle,
-  StyleSheet,
-} from "react-native";
+import { TextInput, type TextInputProps, type TextStyle } from "react-native";
 import { type ReactNode, forwardRef } from "react";
-import Box from "./box";
-import Typography from "./typography";
-import { COLORS } from "../../lib/constants";
-import { createCommonStyles } from "../../lib/utils/create-common-styles";
+import Box from "@/shared/components/ui/box";
+import Typography from "@/shared/components/ui/typography";
+import { COLORS } from "@/shared/constants";
 
 const INPUT_VARIANTS = {
   primary: {
@@ -22,9 +16,7 @@ const INPUT_VARIANTS = {
   },
 } as const;
 
-interface InputProps
-  extends TextInputProps,
-    Omit<CommonStyleProps, "textAlign"> {
+interface InputProps extends TextInputProps {
   variant?: keyof typeof INPUT_VARIANTS;
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
@@ -50,38 +42,57 @@ const Input = forwardRef<TextInput, InputProps>(
     ref,
   ) => {
     const variantStyle = INPUT_VARIANTS[variant];
-    const commonStyles = createCommonStyles(props);
 
     return (
       <Box
         style={[
-          styles.container,
-          fullWidth ? styles.fullWidth : styles.autoWidth,
+          { flexDirection: "column" },
+          fullWidth ? { width: "100%" } : { width: "auto" },
         ]}>
         {label && (
-          <Typography variant="label1" fontWeight="700" style={styles.label}>
+          <Typography
+            variant="label1"
+            fontWeight="700"
+            style={{ marginBottom: 4 }}>
             {label}
           </Typography>
         )}
 
         <Box
           style={[
-            styles.inputContainer,
+            {
+              flexDirection: "row",
+              alignItems: "center",
+              borderRadius: 16,
+              height: 48,
+            },
+            error && {
+              borderWidth: 1,
+              borderColor: COLORS.error,
+            },
             variantStyle,
-            error && styles.errorState,
-            commonStyles,
           ]}>
-          {leftIcon && <Box style={styles.leftIconContainer}>{leftIcon}</Box>}
+          {leftIcon && (
+            <Box style={{ paddingLeft: 12, paddingRight: 8 }}>{leftIcon}</Box>
+          )}
 
           <TextInput
             ref={ref}
-            style={[styles.input, style as TextStyle]}
+            style={[
+              {
+                flex: 1,
+                color: COLORS.text,
+                paddingHorizontal: 16,
+                height: 48,
+              },
+              style as TextStyle,
+            ]}
             placeholderTextColor={COLORS.secondaryText}
             {...props}
           />
 
           {rightIcon && (
-            <Box style={styles.rightIconContainer}>{rightIcon}</Box>
+            <Box style={{ paddingLeft: 8, paddingRight: 12 }}>{rightIcon}</Box>
           )}
         </Box>
 
@@ -89,7 +100,7 @@ const Input = forwardRef<TextInput, InputProps>(
           <Typography
             variant="paragraph2"
             color="error"
-            style={styles.errorMessage}>
+            style={{ marginTop: 4 }}>
             {errorMessage}
           </Typography>
         )}
@@ -101,45 +112,3 @@ const Input = forwardRef<TextInput, InputProps>(
 Input.displayName = "Input";
 
 export default Input;
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "column",
-  },
-  fullWidth: {
-    width: "100%",
-  },
-  autoWidth: {
-    width: "auto",
-  },
-  label: {
-    marginBottom: 4,
-  },
-  inputContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    borderRadius: 16,
-    height: 48,
-  },
-  leftIconContainer: {
-    paddingLeft: 12,
-    paddingRight: 8,
-  },
-  rightIconContainer: {
-    paddingLeft: 8,
-    paddingRight: 12,
-  },
-  input: {
-    flex: 1,
-    color: COLORS.text,
-    paddingHorizontal: 16,
-    height: 48,
-  },
-  errorState: {
-    borderWidth: 1,
-    borderColor: COLORS.error,
-  },
-  errorMessage: {
-    marginTop: 4,
-  },
-});

@@ -3,12 +3,12 @@ import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "expo-router";
-import Box from "../../../shared/components/ui/box";
-import Input from "../../../shared/components/ui/input";
-import { SignUpFormData, signUpSchema } from "../types";
-import { signUpWithPassword } from "../actions/sign-up-with-password";
-import EyeIcon from "../../../shared/components/icons/eye";
-import Button from "../../../shared/components/ui/button";
+import Box from "@/shared/components/ui/box";
+import Input from "@/shared/components/ui/input";
+import { SignUpFormData, signUpSchema } from "@/modules/auth/types";
+import { signUpWithPassword } from "@/modules/auth/services/sign-up-with-password";
+import EyeIcon from "@/shared/components/icons/eye";
+import Button from "@/shared/components/ui/button";
 
 const SignUpForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -43,7 +43,7 @@ const SignUpForm = () => {
 
   return (
     <>
-      <Box gap={16}>
+      <Box style={{ gap: 16 }}>
         <Controller
           control={control}
           name="email"
@@ -112,7 +112,7 @@ const SignUpForm = () => {
       </Box>
 
       <Button
-        mt={24}
+        style={{ marginTop: 24 }}
         onPress={handleSubmit((data: SignUpFormData) => signUpMutation(data))}
         loading={isPending}>
         Sign Up

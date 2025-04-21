@@ -1,5 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
-import { LargeSecureStore } from "../helpers/large-secure-store";
+import { LargeSecureStore } from "@/shared/services/large-secure-store";
 import { AppState } from "react-native";
 
 const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL as string;

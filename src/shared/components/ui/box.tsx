@@ -1,11 +1,7 @@
 import { View, type ViewProps } from "react-native";
-import { createCommonStyles } from "../../lib/utils/create-common-styles";
 
-interface BoxProps extends ViewProps, CommonStyleProps {}
-
-const Box = ({ style, ...props }: BoxProps) => {
-  const commonStyles = createCommonStyles(props);
-  return <View style={[commonStyles, style]} {...props} />;
+const Box = ({ style, ...props }: ViewProps) => {
+  return <View style={style} {...props} />;
 };
 
 export default Box;

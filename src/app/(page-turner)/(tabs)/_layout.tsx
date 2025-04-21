@@ -1,10 +1,10 @@
 import { Tabs } from "expo-router";
-import HapticTab from "../../../shared/components/global/haptic-tab";
-import TabBarBackground from "../../../shared/components/global/tab-bar-background";
-import { COLORS } from "../../../shared/lib/constants";
-import BookIcon from "../../../shared/components/icons/book";
-import ChartIcon from "../../../shared/components/icons/chart";
-import SettingsIcon from "../../../shared/components/icons/settings";
+import HapticTab from "@/shared/components/global/haptic-tab";
+import TabBarBackground from "@/shared/components/global/tab-bar-background";
+import { COLORS } from "@/shared/constants";
+import BookIcon from "@/shared/components/icons/book";
+import ChartIcon from "@/shared/components/icons/chart";
+import SettingsIcon from "@/shared/components/icons/settings";
 
 const TabLayout = () => {
   return (

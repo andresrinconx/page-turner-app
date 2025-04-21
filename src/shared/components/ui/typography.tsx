@@ -1,6 +1,5 @@
-import { Text, type TextProps, type TextStyle, StyleSheet } from "react-native";
-import { COLORS } from "../../lib/constants";
-import { createCommonStyles } from "../../lib/utils/create-common-styles";
+import { Text, type TextProps, type TextStyle } from "react-native";
+import { COLORS } from "@/shared/constants";
 
 const TEXT_VARIANTS = {
   paragraph1: {
@@ -45,9 +44,24 @@ const TEXT_VARIANTS = {
   },
 } as const;
 
-interface TypographyProps extends TextProps, CommonStyleProps {
+type FontWeight =
+  | "normal"
+  | "bold"
+  | "100"
+  | "200"
+  | "300"
+  | "400"
+  | "500"
+  | "600"
+  | "700"
+  | "800"
+  | "900";
+
+interface TypographyProps extends TextProps {
   variant?: keyof typeof TEXT_VARIANTS;
   type?: "primary" | "secondary";
+  color?: keyof typeof COLORS;
+  fontWeight?: FontWeight;
   onPress?: () => void;
 }
 
@@ -55,25 +69,28 @@ const Typography = ({
   style,
   variant = "paragraph1",
   type = "primary",
+  fontWeight = "400",
+  color,
   onPress,
   ...props
 }: TypographyProps) => {
-  const textColor =
-    variant === "link"
-      ? "primary"
+  const textColor = color
+    ? COLORS[color]
+    : variant === "link"
+      ? COLORS.primary
       : type === "secondary"
-        ? "secondaryText"
-        : "text";
-  const variantStyle = TEXT_VARIANTS[variant];
-  const commonStyles = createCommonStyles(props);
+        ? COLORS.secondaryText
+        : COLORS.text;
 
   return (
     <Text
       style={[
-        styles.base,
-        variantStyle,
-        { color: COLORS[textColor] },
-        commonStyles,
+        {
+          fontFamily: "System",
+          color: textColor,
+          fontWeight: fontWeight ? fontWeight : "400",
+          ...TEXT_VARIANTS[variant],
+        },
         style as TextStyle,
       ]}
       onPress={onPress}
@@ -83,9 +100,3 @@ const Typography = ({
 };
 
 export default Typography;
-
-const styles = StyleSheet.create({
-  base: {
-    fontFamily: "System",
-  },
-});

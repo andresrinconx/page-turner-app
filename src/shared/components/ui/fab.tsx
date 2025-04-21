@@ -1,5 +1,6 @@
-import PlusIcon from "../icons/plus";
-import Button from "./button";
+import PlusIcon from "@/shared/components/icons/plus";
+import Button from "@/shared/components/ui/button";
+import { COLORS } from "@/shared/constants";
 
 interface FABProps {
   onPress: () => void;
@@ -8,11 +9,13 @@ interface FABProps {
 const FAB = ({ onPress }: FABProps) => {
   return (
     <Button
+      style={{
+        position: "absolute",
+        bottom: 16,
+        right: 16,
+        backgroundColor: COLORS.primary,
+      }}
       variant="icon"
-      bg="primary"
-      position="absolute"
-      bottom={16}
-      right={16}
       onPress={onPress}>
       <PlusIcon color="white" />
     </Button>
