@@ -1,3 +1,10 @@
+/**
+ * large-secure-store.ts
+ * Large secure store service
+ *
+ * Created by Andres Rincon on 21/4/25.
+ */
+
 import * as aesjs from "aes-js";
 import * as SecureStore from "expo-secure-store";
 import AsyncStorage from "@react-native-async-storage/async-storage";

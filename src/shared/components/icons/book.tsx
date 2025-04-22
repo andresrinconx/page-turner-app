@@ -1,3 +1,10 @@
+/**
+ * book.tsx
+ * Book icon component
+ *
+ * Created by Andres Rincon on 21/4/25.
+ */
+
 import * as React from "react";
 import Svg, { Path } from "react-native-svg";
 import { COLORS } from "@/shared/constants";

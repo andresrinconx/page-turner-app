@@ -1,3 +1,10 @@
+/**
+ * button.tsx
+ * Button component
+ *
+ * Created by Andres Rincon on 21/4/25.
+ */
+
 import { Pressable, ViewStyle, type PressableProps, View } from "react-native";
 import Typography from "@/shared/components/ui/typography";
 import Spinner from "@/shared/components/ui/spinner";

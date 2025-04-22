@@ -1,3 +1,10 @@
+/**
+ * sign-up.tsx
+ * Sign up screen
+ *
+ * Created by Andres Rincon on 21/4/25.
+ */
+
 import Box from "@/shared/components/ui/box";
 import Typography from "@/shared/components/ui/typography";
 import SignUpForm from "@/modules/auth/components/sign-up-form";

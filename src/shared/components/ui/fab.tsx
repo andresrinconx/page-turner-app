@@ -1,3 +1,10 @@
+/**
+ * fab.tsx
+ * Floating action button component
+ *
+ * Created by Andres Rincon on 21/4/25.
+ */
+
 import PlusIcon from "@/shared/components/icons/plus";
 import Button from "@/shared/components/ui/button";
 import { COLORS } from "@/shared/constants";

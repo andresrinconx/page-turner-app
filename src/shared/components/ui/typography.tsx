@@ -1,3 +1,10 @@
+/**
+ * typography.ts
+ * Typography component
+ *
+ * Created by Andres Rincon on 21/4/25.
+ */
+
 import { Text, type TextProps, type TextStyle } from "react-native";
 import { COLORS } from "@/shared/constants";
 

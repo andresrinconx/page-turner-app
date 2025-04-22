@@ -1,3 +1,10 @@
+/**
+ * sign-out.ts
+ * Sign out service
+ *
+ * Created by Andres Rincon on 21/4/25.
+ */
+
 import supabase from "@/shared/config/supabase";
 
 const signOut = async () => {

@@ -1,7 +1,15 @@
+/**
+ * eye.tsx
+ * Eye icon component
+ *
+ * Created by Andres Rincon on 21/4/25.
+ */
+
 import * as React from "react";
 import { Pressable } from "react-native";
 import Svg, { Path } from "react-native-svg";
 import { COLORS } from "@/shared/constants";
+
 interface EyeIconProps {
   color: keyof typeof COLORS;
   on?: boolean;

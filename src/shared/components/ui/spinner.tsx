@@ -1,3 +1,10 @@
+/**
+ * spinner.tsx
+ * Spinner component
+ *
+ * Created by Andres Rincon on 21/4/25.
+ */
+
 import { ActivityIndicator } from "react-native";
 import { COLORS } from "@/shared/constants";
 

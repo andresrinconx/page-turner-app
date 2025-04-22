@@ -1,3 +1,10 @@
+/**
+ * add-book.tsx
+ * Add book screen
+ *
+ * Created by Andres Rincon on 21/4/25.
+ */
+
 import Box from "@/shared/components/ui/box";
 import AddBookForm from "@/modules/books/components/add-book-form";
 import Typography from "@/shared/components/ui/typography";
@@ -7,7 +14,7 @@ import Screen from "@/shared/components/templates/screen";
 
 const AddBookScreen = () => {
   return (
-    <Screen style={{ paddingTop: 24 }}>
+    <Screen contentContainerStyle={{ paddingTop: 24 }}>
       <CloseIcon color="overlay" onPress={() => router.back()} />
 
       <Box style={{ flex: 1, justifyContent: "center", paddingTop: 48 }}>

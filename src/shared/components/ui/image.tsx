@@ -1,3 +1,10 @@
+/**
+ * image.tsx
+ * Image component
+ *
+ * Created by Andres Rincon on 21/4/25.
+ */
+
 import {
   Image as RNImage,
   StyleProp,
@@ -9,12 +16,26 @@ import {
 interface ImageProps {
   source: ImageSourcePropType | undefined;
   resizeMode?: ImageResizeMode;
+  height?: number;
+  width?: number;
   style?: StyleProp<ImageStyle>;
 }
 
-const Image = ({ source, style, ...props }: ImageProps) => {
+const Image = ({
+  source,
+  resizeMode = "contain",
+  style,
+  height,
+  width,
+  ...props
+}: ImageProps) => {
   return (
-    <RNImage source={source} resizeMode="contain" style={[style]} {...props} />
+    <RNImage
+      source={source}
+      resizeMode={resizeMode}
+      style={[style, { height, width }]}
+      {...props}
+    />
   );
 };
 

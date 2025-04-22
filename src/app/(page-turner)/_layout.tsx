@@ -1,3 +1,10 @@
+/**
+ * _layout.tsx
+ * Page turner layout component
+ *
+ * Created by Andres Rincon on 21/4/25.
+ */
+
 import { getSession } from "@/modules/auth/services/get-session";
 import supabase from "@/shared/config/supabase";
 import { Stack, Redirect } from "expo-router";

@@ -1,3 +1,10 @@
+/**
+ * chevron-left.tsx
+ * Chevron left icon component
+ *
+ * Created by Andres Rincon on 21/4/25.
+ */
+
 import * as React from "react";
 import { Pressable } from "react-native";
 import Svg, { Path } from "react-native-svg";

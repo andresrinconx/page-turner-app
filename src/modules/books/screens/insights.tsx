@@ -1,3 +1,10 @@
+/**
+ * insights.tsx
+ * Insights screen
+ *
+ * Created by Andres Rincon on 21/4/25.
+ */
+
 import Typography from "@/shared/components/ui/typography";
 import Screen from "@/shared/components/templates/screen";
 

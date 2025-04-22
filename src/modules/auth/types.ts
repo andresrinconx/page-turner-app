@@ -1,3 +1,10 @@
+/**
+ * types.ts
+ * Types for the auth module
+ *
+ * Created by Andres Rincon on 21/4/25.
+ */
+
 import { z } from "zod";
 
 export const signInSchema = z.object({

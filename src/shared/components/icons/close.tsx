@@ -1,3 +1,10 @@
+/**
+ * close.tsx
+ * Close icon component
+ *
+ * Created by Andres Rincon on 21/4/25.
+ */
+
 import Svg, { Path } from "react-native-svg";
 import { COLORS } from "@/shared/constants";
 import { Pressable } from "react-native";

@@ -1,3 +1,10 @@
+/**
+ * _layout.tsx
+ * Root layout component
+ *
+ * Created by Andres Rincon on 21/4/25.
+ */
+
 import { useEffect } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";

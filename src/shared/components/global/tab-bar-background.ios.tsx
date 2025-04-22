@@ -1,3 +1,10 @@
+/**
+ * tab-bar-background.ios.tsx
+ * Tab bar background component for iOS
+ *
+ * Created by Andres Rincon on 21/4/25.
+ */
+
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 import { BlurView } from "expo-blur";
 import { StyleSheet } from "react-native";

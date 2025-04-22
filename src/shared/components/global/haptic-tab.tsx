@@ -1,3 +1,10 @@
+/**
+ * haptic-tab.tsx
+ * Haptic tab component
+ *
+ * Created by Andres Rincon on 21/4/25.
+ */
+
 import { BottomTabBarButtonProps } from "@react-navigation/bottom-tabs";
 import { PlatformPressable } from "@react-navigation/elements";
 import * as Haptics from "expo-haptics";

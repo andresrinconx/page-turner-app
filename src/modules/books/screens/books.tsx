@@ -1,3 +1,10 @@
+/**
+ * books.tsx
+ * Books screen
+ *
+ * Created by Andres Rincon on 21/4/25.
+ */
+
 import React from "react";
 import { router } from "expo-router";
 import FAB from "@/shared/components/ui/fab";

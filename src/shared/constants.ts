@@ -1,3 +1,10 @@
+/**
+ * constants.ts
+ * Constants for the shared components
+ *
+ * Created by Andres Rincon on 21/4/25.
+ */
+
 export const COLORS = {
   primary: "#0BB589",
   secondary: "#EF844C",

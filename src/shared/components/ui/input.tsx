@@ -1,3 +1,10 @@
+/**
+ * input.tsx
+ * Input component
+ *
+ * Created by Andres Rincon on 21/4/25.
+ */
+
 import { TextInput, type TextInputProps, type TextStyle } from "react-native";
 import { type ReactNode, forwardRef } from "react";
 import Box from "@/shared/components/ui/box";

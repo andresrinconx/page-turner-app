@@ -1,3 +1,10 @@
+/**
+ * photos-permission.ts
+ * Photos permission service
+ *
+ * Created by Andres Rincon on 21/4/25.
+ */
+
 import { Alert, Linking } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import { PhotosPermissionStatus } from "@/shared/types";

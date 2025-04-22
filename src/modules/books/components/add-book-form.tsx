@@ -1,4 +1,12 @@
+/**
+ * add-book-form.tsx
+ * Add book form component
+ *
+ * Created by Andres Rincon on 21/4/25.
+ */
+
 import React from "react";
+import { router } from "expo-router";
 import Box from "@/shared/components/ui/box";
 import Input from "@/shared/components/ui/input";
 import Button from "@/shared/components/ui/button";
@@ -6,10 +14,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import { addBookSchema, AddBookFormData } from "@/modules/books/types";
 import { useMutation } from "@tanstack/react-query";
-import { router } from "expo-router";
 import { addBook } from "@/modules/books/services/add-book";
+import { useImagePicker } from "@/modules/books/hooks/use-image-picker";
+import Image from "@/shared/components/ui/image";
 
 const AddBookForm = () => {
+  const { image, pickImage } = useImagePicker();
+
   const {
     control,
     handleSubmit,
@@ -39,7 +50,13 @@ const AddBookForm = () => {
   return (
     <>
       <Box style={{ gap: 16 }}>
-        {/* Cover */}
+        <Button variant="outline" onPress={() => pickImage()}>
+          Pick image
+        </Button>
+
+        {image && (
+          <Image source={{ uri: image }} style={{ width: 100, height: 100 }} />
+        )}
 
         <Controller
           control={control}

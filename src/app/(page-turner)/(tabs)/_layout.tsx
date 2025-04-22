@@ -1,3 +1,10 @@
+/**
+ * _layout.tsx
+ * Page turner tabs layout component
+ *
+ * Created by Andres Rincon on 21/4/25.
+ */
+
 import { Tabs } from "expo-router";
 import HapticTab from "@/shared/components/global/haptic-tab";
 import TabBarBackground from "@/shared/components/global/tab-bar-background";

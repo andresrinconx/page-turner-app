@@ -1,3 +1,10 @@
+/**
+ * supabase.ts
+ * Supabase client
+ *
+ * Created by Andres Rincon on 21/4/25.
+ */
+
 import { createClient } from "@supabase/supabase-js";
 import { LargeSecureStore } from "@/shared/services/large-secure-store";
 import { AppState } from "react-native";
