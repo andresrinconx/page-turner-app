@@ -15,23 +15,21 @@ import { Controller, useForm } from "react-hook-form";
 import { addBookSchema, AddBookFormData } from "@/modules/books/types";
 import { useMutation } from "@tanstack/react-query";
 import { addBook } from "@/modules/books/services/add-book";
-import { useImagePicker } from "@/modules/books/hooks/use-image-picker";
-import Image from "@/shared/components/ui/image";
+import BookCover from "@/modules/books/components/book-cover";
 
 const AddBookForm = () => {
-  const { image, pickImage } = useImagePicker();
-
   const {
     control,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm<AddBookFormData>({
     mode: "onSubmit",
     resolver: zodResolver(addBookSchema),
     defaultValues: {
       title: "",
-      totalPages: "",
-      cover: "",
+      totalPages: 0,
+      cover: undefined,
     },
   });
 
@@ -50,13 +48,11 @@ const AddBookForm = () => {
   return (
     <>
       <Box style={{ gap: 16 }}>
-        <Button variant="outline" onPress={() => pickImage()}>
-          Pick image
-        </Button>
-
-        {image && (
-          <Image source={{ uri: image }} style={{ width: 100, height: 100 }} />
-        )}
+        <Box style={{ alignItems: "center" }}>
+          <BookCover
+            onImagePicked={value => setValue("cover", value ?? undefined)}
+          />
+        </Box>
 
         <Controller
           control={control}
@@ -85,9 +81,9 @@ const AddBookForm = () => {
               label="Pages"
               placeholder="Number of pages"
               keyboardType="numeric"
-              onChangeText={onChange}
+              onChangeText={text => onChange(Number(text) || 0)}
               onBlur={onBlur}
-              value={value.toString()}
+              value={value === 0 ? "" : value.toString()}
               error={!!errors.totalPages}
               errorMessage={errors.totalPages?.message}
             />

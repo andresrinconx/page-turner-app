@@ -8,7 +8,7 @@
 import { Pressable, ViewStyle, type PressableProps, View } from "react-native";
 import Typography from "@/shared/components/ui/typography";
 import Spinner from "@/shared/components/ui/spinner";
-import { COLORS } from "@/shared/constants";
+import { COLORS, SIZES } from "@/shared/constants";
 
 const SIZE = 48 as const;
 
@@ -56,7 +56,7 @@ const Button = ({
     <Pressable
       style={({ pressed }) => [
         {
-          borderRadius: 16,
+          borderRadius: SIZES.borderRadius,
           height: SIZE,
           alignItems: "center",
           justifyContent: "center",

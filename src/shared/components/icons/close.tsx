@@ -7,14 +7,15 @@
 
 import Svg, { Path } from "react-native-svg";
 import { COLORS } from "@/shared/constants";
-import { Pressable } from "react-native";
+import { Pressable, StyleProp, ViewStyle } from "react-native";
 
 interface CloseIconProps {
   color: keyof typeof COLORS;
   onPress?: () => void;
+  style?: StyleProp<ViewStyle>;
 }
 
-const CloseIcon = ({ color, onPress }: CloseIconProps) => {
+const CloseIcon = ({ color, onPress, style }: CloseIconProps) => {
   return (
     <Pressable
       onPress={onPress}
@@ -28,6 +29,7 @@ const CloseIcon = ({ color, onPress }: CloseIconProps) => {
           justifyContent: "center",
           opacity: pressed ? 0.7 : 1,
         },
+        style as ViewStyle,
       ]}>
       <Svg width={24} height={24} viewBox="0 0 24 24">
         <Path

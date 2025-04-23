@@ -22,3 +22,7 @@ export const COLORS = {
   white: "#FFFFFF",
   black: "#000000",
 };
+
+export const SIZES = {
+  borderRadius: 16,
+};

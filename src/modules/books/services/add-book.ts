@@ -7,13 +7,37 @@
 
 import supabase from "@/shared/config/supabase";
 import { AddBookFormData } from "@/modules/books/types";
+import { getArrayBuffer } from "@/shared/utils/get-array-buffer";
+import { getUser } from "@/shared/services/get-user";
 
-export const addBook = async (data: AddBookFormData) => {
-  const { data: book, error } = await supabase.from("books").insert(data);
+export const addBook = async (book: AddBookFormData) => {
+  const { title, totalPages, cover } = book;
 
-  if (error) {
-    throw new Error(error.message);
+  const { data: bookData, error: bookError } = await supabase
+    .from("books")
+    .insert([{ title, total_pages: totalPages }])
+    .select();
+
+  if (bookError) {
+    throw new Error(bookError.message);
   }
 
-  return book;
+  if (!cover) {
+    return { data: bookData };
+  }
+
+  const user = await getUser();
+  const { arraybuffer, path } = await getArrayBuffer(user!.id, cover);
+
+  const { data: coverData, error: coverError } = await supabase.storage
+    .from("files")
+    .upload(path, arraybuffer, {
+      contentType: cover.mimeType ?? "image/jpeg",
+    });
+
+  if (coverError) {
+    throw new Error(coverError.message);
+  }
+
+  return { data: bookData, coverData };
 };

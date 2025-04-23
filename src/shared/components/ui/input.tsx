@@ -9,7 +9,7 @@ import { TextInput, type TextInputProps, type TextStyle } from "react-native";
 import { type ReactNode, forwardRef } from "react";
 import Box from "@/shared/components/ui/box";
 import Typography from "@/shared/components/ui/typography";
-import { COLORS } from "@/shared/constants";
+import { COLORS, SIZES } from "@/shared/constants";
 
 const INPUT_VARIANTS = {
   primary: {
@@ -70,7 +70,7 @@ const Input = forwardRef<TextInput, InputProps>(
             {
               flexDirection: "row",
               alignItems: "center",
-              borderRadius: 16,
+              borderRadius: SIZES.borderRadius,
               height: 48,
             },
             error && {
