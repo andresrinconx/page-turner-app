@@ -35,9 +35,7 @@ const SignInForm = () => {
   });
 
   const { mutate: signInMutation, isPending } = useMutation({
-    mutationFn: async (data: SignInFormData) => {
-      await signInWithPassword(data.email, data.password);
-    },
+    mutationFn: signInWithPassword,
     onSuccess: () => {
       router.replace("/(page-turner)/(tabs)");
     },

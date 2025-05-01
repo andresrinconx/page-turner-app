@@ -6,17 +6,27 @@
  */
 
 import supabase from "@/shared/config/supabase";
-import { AddBookFormData } from "@/modules/books/types";
+import { AddBookFormData, Book } from "@/modules/books/types";
 import { getArrayBuffer } from "@/shared/utils/get-array-buffer";
 import { getUser } from "@/shared/services/get-user";
 
-export const addBook = async (book: AddBookFormData) => {
+interface AddBookResponse {
+  data: Book;
+  coverData?: {
+    path: string;
+  };
+}
+
+export const addBook = async (
+  book: AddBookFormData,
+): Promise<AddBookResponse> => {
   const { title, totalPages, cover } = book;
 
   const { data: bookData, error: bookError } = await supabase
     .from("books")
     .insert([{ title, total_pages: totalPages }])
-    .select();
+    .select()
+    .single();
 
   if (bookError) {
     throw new Error(bookError.message);
@@ -27,7 +37,11 @@ export const addBook = async (book: AddBookFormData) => {
   }
 
   const user = await getUser();
-  const { arraybuffer, path } = await getArrayBuffer(user!.id, cover);
+  if (!user) {
+    throw new Error("User not found");
+  }
+
+  const { arraybuffer, path } = await getArrayBuffer(user.id, cover);
 
   const { data: coverData, error: coverError } = await supabase.storage
     .from("files")

@@ -37,9 +37,7 @@ const SignUpForm = () => {
   });
 
   const { mutate: signUpMutation, isPending } = useMutation({
-    mutationFn: async (data: SignUpFormData) => {
-      await signUpWithPassword(data.email, data.password);
-    },
+    mutationFn: signUpWithPassword,
     onSuccess: () => {
       router.replace("/(page-turner)/(tabs)");
     },

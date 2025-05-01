@@ -14,11 +14,11 @@ import CloseIcon from "@/shared/components/icons/close";
 import { SIZES, COLORS } from "@/shared/constants";
 import { ImagePickerAsset } from "expo-image-picker";
 
-interface BookCoverProps {
+interface BookCoverPickerProps {
   onImagePicked: (image: ImagePickerAsset | null) => void;
 }
 
-const BookCover = ({ onImagePicked }: BookCoverProps) => {
+const BookCoverPicker = ({ onImagePicked }: BookCoverPickerProps) => {
   const { image, pickImage, removeImage } = useImagePicker({
     onImagePicked,
   });
@@ -60,4 +60,4 @@ const BookCover = ({ onImagePicked }: BookCoverProps) => {
   );
 };
 
-export default BookCover;
+export default BookCoverPicker;

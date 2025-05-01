@@ -18,3 +18,13 @@ export const addBookSchema = z.object({
 });
 
 export type AddBookFormData = z.infer<typeof addBookSchema>;
+
+export type Book = {
+  created_at: string;
+  id: string;
+  pages_read: number;
+  status: string;
+  title: string;
+  total_pages: number;
+  user_id: string;
+};

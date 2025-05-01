@@ -28,7 +28,7 @@ const AddBookScreen = () => {
           Add a new book
         </Typography>
 
-        <AddBookForm />
+        <AddBookForm onClose={() => router.back()} />
       </Box>
     </Screen>
   );

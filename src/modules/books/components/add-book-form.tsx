@@ -13,11 +13,13 @@ import Button from "@/shared/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import { addBookSchema, AddBookFormData } from "@/modules/books/types";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { addBook } from "@/modules/books/services/add-book";
-import BookCover from "@/modules/books/components/book-cover";
+import BookCoverPicker from "@/modules/books/components/book-cover-picker";
 
-const AddBookForm = () => {
+const AddBookForm = ({ onClose }: { onClose: () => void }) => {
+  const queryClient = useQueryClient();
+
   const {
     control,
     handleSubmit,
@@ -34,11 +36,10 @@ const AddBookForm = () => {
   });
 
   const { mutate: addBookMutation, isPending } = useMutation({
-    mutationFn: async (data: AddBookFormData) => {
-      await addBook(data);
-    },
+    mutationFn: addBook,
     onSuccess: () => {
-      router.replace("/(page-turner)/(tabs)");
+      queryClient.invalidateQueries({ queryKey: ["books"] });
+      onClose();
     },
     onError: error => {
       console.log("error", error);
@@ -49,7 +50,7 @@ const AddBookForm = () => {
     <>
       <Box style={{ gap: 16 }}>
         <Box style={{ alignItems: "center" }}>
-          <BookCover
+          <BookCoverPicker
             onImagePicked={value => setValue("cover", value ?? undefined)}
           />
         </Box>

@@ -6,11 +6,12 @@
  */
 
 import supabase from "@/shared/config/supabase";
+import { SignUpFormData } from "@/modules/auth/types";
 
-export const signUpWithPassword = async (email: string, password: string) => {
+export const signUpWithPassword = async (userData: SignUpFormData) => {
   const { data, error } = await supabase.auth.signUp({
-    email,
-    password,
+    email: userData.email,
+    password: userData.password,
   });
 
   if (error) {
