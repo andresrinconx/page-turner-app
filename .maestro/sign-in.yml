@@ -1,0 +1,9 @@
+appId: com.andresrincon.x.pageturner
+---
+- launchApp
+- tapOn: "Enter your email"
+- inputText: "andresrinconx@gmail.com"
+- tapOn: "Enter your password"
+- inputText: "1234567890"
+- tapOn: "Login"
+- assertVisible: "Page Turner"
