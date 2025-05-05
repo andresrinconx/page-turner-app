@@ -50,7 +50,9 @@
         {
           "photosPermission": "The app accesses your photos to let you add book covers."
         }
-      ]
+      ],
+      "expo-font",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true
