@@ -1,6 +1,6 @@
 /**
  * query-client.ts
- * Query client
+ * Query client configuration
  *
  * Created by Andres Rincon on 21/4/25.
  */

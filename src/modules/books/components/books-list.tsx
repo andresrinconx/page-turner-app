@@ -1,6 +1,6 @@
 /**
- * books-list
- * BooksList component
+ * books-list.tsx
+ * BooksList component with books list
  *
  * Created by Andres Rincon on 23/04/25
  */

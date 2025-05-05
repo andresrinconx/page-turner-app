@@ -1,6 +1,7 @@
 /**
- * NotificationsContext
- * NotificationsContext provider
+ * notifications-context.tsx
+ * NotificationsContext provider and hooks to manage notifications preferences.
+ * It also schedules notifications based on the selected weekdays and reminder time.
  *
  * Created by Andres Rincon on 28/04/25
  */

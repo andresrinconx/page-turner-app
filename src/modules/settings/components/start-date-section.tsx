@@ -1,8 +1,8 @@
 /**
  * start-date-section.tsx
- * Start date section component for settings screen
+ * Start date section component to select the start date of the book
  *
- * Created by Andres Rincon on 28/04/25
+ * Created by Andres Rincon on 05/05/25
  */
 
 import React from "react";

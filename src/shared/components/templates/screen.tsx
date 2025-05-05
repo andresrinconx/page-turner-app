@@ -1,6 +1,6 @@
 /**
  * screen.tsx
- * Screen component
+ * Screen component with optional scrollable prop.
  *
  * Created by Andres Rincon on 21/4/25.
  */

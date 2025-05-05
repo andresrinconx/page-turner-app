@@ -1,6 +1,6 @@
 /**
  * scrollable-box.tsx
- * Scrollable box component
+ * Scrollable box component with optional style prop. It accepts all standard View props.
  *
  * Created by Andres Rincon on 21/4/25.
  */

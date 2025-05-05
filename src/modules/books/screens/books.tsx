@@ -1,6 +1,6 @@
 /**
  * books.tsx
- * Books screen
+ * Books screen, or home screen with books list and add book button
  *
  * Created by Andres Rincon on 21/4/25.
  */

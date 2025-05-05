@@ -1,6 +1,6 @@
 /**
  * reminder-time-section.tsx
- * Reminder time section component for settings screen
+ * Reminder time section component to select the time to receive notifications
  *
  * Created by Andres Rincon on 28/04/25
  */

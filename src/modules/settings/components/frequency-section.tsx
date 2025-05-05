@@ -1,6 +1,6 @@
 /**
  * frequency-section.tsx
- * Frequency section component for settings screen
+ * Frequency section component to select the days of the week to receive notifications
  *
  * Created by Andres Rincon on 28/04/25
  */

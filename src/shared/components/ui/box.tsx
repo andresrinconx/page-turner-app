@@ -1,6 +1,6 @@
 /**
  * box.tsx
- * Box component
+ * Box component with optional style prop. It accepts all standard View props.
  *
  * Created by Andres Rincon on 21/4/25.
  */

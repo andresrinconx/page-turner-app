@@ -1,6 +1,6 @@
 /**
  * calendar
- * Calendar component
+ * Calendar icon component
  *
  * Created by Andres Rincon on 02/05/25
  */

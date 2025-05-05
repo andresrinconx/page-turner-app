@@ -1,6 +1,6 @@
 /**
- * book-card
- * BookCard component
+ * book-card.tsx
+ * BookCard component with book information
  *
  * Created by Andres Rincon on 28/04/25
  */
