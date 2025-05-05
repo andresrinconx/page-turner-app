@@ -1,6 +1,6 @@
 /**
  * input.tsx
- * Input component
+ * Input component with different variants and error handling. It also supports left and right icons.
  *
  * Created by Andres Rincon on 21/4/25.
  */

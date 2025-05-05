@@ -1,6 +1,6 @@
 /**
- * book-cover
- * BookCover component
+ * book-cover-picker.tsx
+ * BookCoverPicker component with book cover picker
  *
  * Created by Andres Rincon on 22/04/25
  */

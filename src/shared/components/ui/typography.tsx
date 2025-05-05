@@ -1,6 +1,7 @@
 /**
  * typography.ts
- * Typography component
+ * Typography component with different variants and colors,
+ * it also supports a type prop to change the color of the text.
  *
  * Created by Andres Rincon on 21/4/25.
  */

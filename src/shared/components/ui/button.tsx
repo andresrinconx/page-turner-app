@@ -1,6 +1,7 @@
 /**
  * button.tsx
- * Button component
+ * Button component with different variants and loading state,
+ * it also supports children as a string or an array of strings.
  *
  * Created by Andres Rincon on 21/4/25.
  */

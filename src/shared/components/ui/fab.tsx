@@ -1,6 +1,6 @@
 /**
  * fab.tsx
- * Floating action button component
+ * Floating action button component with optional style prop.
  *
  * Created by Andres Rincon on 21/4/25.
  */

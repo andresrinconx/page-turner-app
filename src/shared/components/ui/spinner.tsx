@@ -1,6 +1,6 @@
 /**
  * spinner.tsx
- * Spinner component
+ * Spinner component with optional color prop.
  *
  * Created by Andres Rincon on 21/4/25.
  */
