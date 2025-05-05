@@ -12,6 +12,7 @@ import Typography from "@/shared/components/ui/typography";
 import Screen from "@/shared/components/templates/screen";
 import BooksList from "@/modules/books/components/books-list";
 import Box from "@/shared/components/ui/box";
+import PlusIcon from "@/shared/components/icons/plus";
 
 const BooksScreen = () => {
   return (
@@ -29,7 +30,9 @@ const BooksScreen = () => {
         </Box>
       </Screen>
 
-      <FAB onPress={() => router.push("/add-book")} />
+      <FAB onPress={() => router.push("/add-book")}>
+        <PlusIcon color="white" />
+      </FAB>
     </>
   );
 };

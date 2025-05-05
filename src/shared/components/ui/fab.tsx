@@ -5,15 +5,15 @@
  * Created by Andres Rincon on 21/4/25.
  */
 
-import PlusIcon from "@/shared/components/icons/plus";
-import Button from "@/shared/components/ui/button";
 import { COLORS } from "@/shared/constants";
+import Button from "@/shared/components/ui/button";
 
 interface FABProps {
   onPress: () => void;
+  children: React.ReactNode;
 }
 
-const FAB = ({ onPress }: FABProps) => {
+const FAB = ({ onPress, children }: FABProps) => {
   return (
     <Button
       style={{
@@ -24,7 +24,7 @@ const FAB = ({ onPress }: FABProps) => {
       }}
       variant="icon"
       onPress={onPress}>
-      <PlusIcon color="white" />
+      {children}
     </Button>
   );
 };

@@ -7,6 +7,7 @@
 
 export const COLORS = {
   primary: "#0BB589",
+  primaryLight: "#E4F7ED",
   secondary: "#EF844C",
   background: "#F7FBFC",
   error: "#B12B2C",
