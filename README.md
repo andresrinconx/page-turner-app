@@ -1,50 +1,57 @@
-# Welcome to your Expo app 👋
+# Page Turner
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Page Turner is a mobile application designed to help users track their reading habits and maintain consistent reading schedules. The app allows users to catalog books, set reading goals, receive reminders, and gain insights into their reading patterns.
 
-## Get started
+## Features
 
-1. Install dependencies
+- Book cataloging and management  
+- Reading reminders and notifications  
+- User authentication  
+- Reading insights and statistics  
+- Customizable notification preferences  
 
-   ```bash
-   npm install
-   ```
+## Architecture
 
-2. Start the app
+The application follows a layered architecture with clear separation of concerns:
 
-   ```bash
-    npx expo start
-   ```
+- **Frontend Layer**: Handles UI rendering and user interactions  
+- **Data Management Layer**: Manages state, data fetching, and local storage  
+- **Backend Services**: Provides authentication, database storage, and notifications  
+- **Build System**: Automates testing, building, and deployment  
 
-In the output, you'll find options to open the app in a
+## Technologies
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Page Turner is built using the following key technologies:
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- **Frontend Framework**: React Native, Expo  
+- **State Management**: React Query, React Context  
+- **Routing**: Expo Router  
+- **Backend Services**: Supabase (Auth, Database, Storage)  
+- **Notifications**: Expo Notifications  
+- **Form Handling**: React Hook Form, Zod  
+- **Storage**: Async Storage, Secure Store  
+- **UI Components**: Custom component library  
+- **CI/CD**: GitHub Actions, Expo Application Services  
 
-## Get a fresh project
+## Key Dependencies
 
-When you're ready, run:
+- `expo` (^53.0.7)  
+- `expo-router` (~5.0.5)  
+- `@supabase/supabase-js` (^2.49.1)  
+- `@tanstack/react-query` (^5.67.1)  
+- `react-hook-form` (^7.54.2)  
+- `expo-notifications` (~0.31.1)  
+- `expo-secure-store` (~14.2.3)  
+- `react-native` (0.79.2)  
 
-```bash
-npm run reset-project
-```
+## Authentication
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+The application uses Supabase Authentication for user management. The authentication flow handles session persistence, login, registration, and session validation.
 
-## Learn more
+## Data Management
 
-To learn more about developing your project with Expo, look at the following resources:
+The app uses a combination of React Query for server state management and React Context for application state. Data is stored in Supabase (remote) and device storage (local).
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## Build and Deployment
 
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+The CI/CD pipeline automates testing, building, and deployment of the application. It is configured using GitHub Actions and Expo Application Services.
